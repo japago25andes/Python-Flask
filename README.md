@@ -17,3 +17,8 @@
 8. Para instalar con el archivo "requirements.txt" => utilizar "pip install -r requirements.txt"
 9. Crear el archivo main "echo. > main.py"
 10. Escribir codigo.
+
+## Iniciar el servidor de Flask
+
+1. Configurar la variable de entorno para que encuentre la aplicacion "set FLASK_APP=main.py"
+2. Correo el servidor de Flask "flask run"
