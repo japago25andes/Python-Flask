@@ -3,12 +3,31 @@ from flask import Flask, render_template
 app = Flask(__name__)
 
 
+#filtros personalizados
+@app.add_template_filter
+def today(date):
+    return date.strftime('%d/%m/%Y')
+
+#funciones personalizadas enviadas al html
+@app.add_template_global
+def repeat(s, n):
+    return s * n
+
+from datetime import datetime
+
+
 @app.route('/')
 @app.route('/index')
 def index():
-    name = None
+    name = 'Juan Alejandro Palacios Gómez'
     friends = ['Juan', 'Pedro', 'Pablo', 'Luis']
-    return render_template('index.html', name = name, friends = friends)
+    date = datetime.now()
+    return render_template(
+        'index.html', 
+        name = name, 
+        friends = friends, 
+        date = date
+    )
 
 #string
 #int

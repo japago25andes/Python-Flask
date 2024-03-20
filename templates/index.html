@@ -6,16 +6,21 @@
 
     <h1>Bienvenido a mi sitio web</h1>
     {% if name%}
-    <p>Hola, {{name}}</p>
+    <p>Hola, {{name | upper}}</p>
+    <p>Hola, {{name | lower}}</p>
+    <p>Hola, {{name | title}}</p>
     {% else %}
     <p>Hola, desconocido</p>
     {% endif %}
 
     <h2>Lista de amigos</h2>
     <ul>
-        {% for friend in friends%}
-        <li>{{friend}}</li>
+        {% for friend in friends | reverse%}
+        <li>{{friend | lower}}</li>
         {% endfor %}
     </ul>
+
+    <p> la fecha de hoy es: {{date | today}}</p>
+    <p> la frase repetida es: {{ repeat("Correos", 5) }}</p>
 
 {% endblock %}
