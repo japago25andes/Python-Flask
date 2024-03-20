@@ -7,7 +7,8 @@ app = Flask(__name__)
 @app.route('/index')
 def index():
     name = None
-    return render_template('index.html', name = name)
+    friends = ['Juan', 'Pedro', 'Pablo', 'Luis']
+    return render_template('index.html', name = name, friends = friends)
 
 #string
 #int
