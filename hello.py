@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for
 
 app = Flask(__name__)
 
@@ -17,8 +17,12 @@ from datetime import datetime
 
 
 @app.route('/')
-@app.route('/index')
 def index():
+
+    print(url_for('index'))
+    print(url_for('hello', name = 'Juan', age = 25))
+    print(url_for('code', code = 'Juan Palacios'))
+
     name = 'Juan Alejandro Palacios Gómez'
     friends = ['Juan', 'Pedro', 'Pablo', 'Luis']
     date = datetime.now()
