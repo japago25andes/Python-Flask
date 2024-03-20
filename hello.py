@@ -36,6 +36,7 @@ def index():
 #uuid
 @app.route('/hello')
 @app.route('/hello/<name>')
+@app.route('/hello/<name>/<int:age>')
 @app.route('/hello/<name>/<int:age>/<email>')
 def hello(name = None, age = None, email = None):
     my_data = {

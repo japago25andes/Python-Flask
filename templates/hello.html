@@ -4,18 +4,18 @@
 
 {% block content%}
 
-    {% if data.name == None and data.age == None: %}
+    {% if data.name == None and data.age == None and data.email == None%}
         <h1>Hola mundo!</h1>
 
-    {% elif data.age == None %}
+    {% elif data.age == None and data.email == None %}
         <h1>Hello, {{ data.name }}!</h1>
     
     {% elif data.email == None %}
-        <h1>Hello, {{ data.name }}!</h1>
+        <h1>Hello, {{ data.name }} y su edad es {{ data.age * 5}}!</h1>
 
-{% else %}
-    <h1>Hello, {{ data.name }} el doble de la edad {{ data.age * 5}}</h1>
-{% endif %}
+    {% else %}
+        <h1>Hello, {{ data.name }} el doble de la edad {{ data.age * 5}} y su correo {{ data.email}}</h1>
+    {% endif %}
 
 
 {% endblock %}
