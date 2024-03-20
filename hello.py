@@ -36,17 +36,18 @@ def index():
 #uuid
 @app.route('/hello')
 @app.route('/hello/<name>')
-@app.route('/hello/<name>/<int:age>')
-def hello(name = None, age = None):
-    if name is None and age is None:
-        return "Hello, World!"
-    elif age is None:
-        return f"Hello, {name}!"
-    else:
-        return f"Hello, {name}  {age * 5}!"
+@app.route('/hello/<name>/<int:age>/<email>')
+def hello(name = None, age = None, email = None):
+    my_data = {
+        'name': name,
+        'age': age,
+        'email': email
+    }
+    return render_template('hello.html', data = my_data)
     
 #prec¿vencion de inyeccion de codigo, se utiliza para convertir a un string plano todo
 from markupsafe import escape
+
 @app.route('/code/<path:code>')
 def code(code):
     return f"Hello, {escape(code)}!"
