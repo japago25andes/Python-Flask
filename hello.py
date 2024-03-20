@@ -23,3 +23,9 @@ def hello(name = None, age = None):
         return f"Hello, {name}!"
     else:
         return f"Hello, {name}  {age * 5}!"
+    
+#prec¿vencion de inyeccion de codigo, se utiliza para convertir a un string plano todo
+from markupsafe import escape
+@app.route('/code/<path:code>')
+def code(code):
+    return f"Hello, {escape(code)}!"
